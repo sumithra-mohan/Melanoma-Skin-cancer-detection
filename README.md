@@ -24,13 +24,8 @@ To build a CNN based model which can accurately detect melanoma. Melanoma is a t
 
 The dataset comprises 2357 images depicting malignant and benign oncological conditions, sourced from the International Skin Imaging Collaboration (ISIC). These images were categorized based on the classification provided by ISIC, with each subset containing an equal number of images.
 
-![datasetgraph](./class_distribution.png)
 
 In order to address the challenge of class imbalance, the Augmentor Python package (https://augmentor.readthedocs.io/en/master/) was employed to augment the dataset. This involved generating additional samples for all classes, ensuring that none of the classes had insufficient representation.
-
-## Pictorial representation of skin types
-
-![skincancertypes](./skin_cancer_types.png)
 
 The aim of this task is to assign a specific class label to a particular type of skin cancer.
 
@@ -57,11 +52,3 @@ The break down of the final provided CNN architecture step by step:
 9. **Model Compilation**: The model is compiled using the Adam optimizer (`optimizer='adam'`) and the Sparse Categorical Crossentropy loss function (`loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)`), which is suitable for multi-class classification problems. Additionally, accuracy is chosen as the evaluation metric (`metrics=['accuracy']`).
 
 10. **Training**: The model is trained using the `fit` method with the specified number of epochs (`epochs=30`). The `ModelCheckpoint` and `EarlyStopping` callbacks are employed to monitor the validation accuracy during training. The `ModelCheckpoint` callback saves the model with the best validation accuracy, while the `EarlyStopping` callback stops training if the validation accuracy does not improve for a specified number of epochs (patience=5 in this case). These callbacks help prevent overfitting and ensure that the model converges to the best possible solution.
-
-## Model Summary
-
-![Model Architecture](./model_summary.png)
-
-## Model Evaluation
-
-![Model Evaluation](./model_evaluation.png)
